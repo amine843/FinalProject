@@ -8,7 +8,7 @@ const Authinput = ({ value, onChange, label, placeholder, type }) => {
   return (
     <div>
       <label className="text-[13px] text-slate-800">{label}</label>
-      <div className="w-full flex justify-between gap-3 text-sm text-black bg-slate-100 rounded px-4 py-3 mb-4 mt-3 border-slate-200 outline-none">
+      <div className="w-full flex justify-between gap-3 text-sm text-purple-900 bg-purple-100 rounded px-4 py-3 mb-4 mt-3 border-slate-200 outline-none">
         <input
           type={
             type == "password" ? (showPassword ? "text" : "password") : "text"

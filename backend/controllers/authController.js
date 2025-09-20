@@ -77,19 +77,24 @@
         }
       };
         exports.getUserInfo = async (req, res) => {
-          const { user } = req;
-          if (!user) {
-            return res.status(401).json({ message: "Not authorized" });
-          }
-          res.status(200).json({
-            id: user._id,
-            email: user.email,
-            fullName: user.fullName,
-            username: user.username,
-            profileImageUrl: user.profileImageUrl,
+          try {
+            const user = await User.findById(req.user.id).select("-password");
+            if (!user) {
+              return res.status(401).json({ message: "User not found" });
+            }
+            //add the new attributes to the response
+            const userInfo = {
+            ...user.toObject(),
             totalPollsCreated: 0,
             totalPollsVotes: 0,
             totalPollsBookmarked: 0,
-          });
+            };
+
+            res.status(200).json(userInfo);
+          } catch (err) {
+             res
+             .status(500)
+             .json({ message: "Error fetching user info", error: err.message }); 
+          }
         };
 

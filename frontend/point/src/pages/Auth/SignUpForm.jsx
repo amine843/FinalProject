@@ -12,10 +12,9 @@ import uploadImage from "../../utils/uploadimage";
 
 
 
-
 const SignUpForm = () => {
-  const [profilePic, setPorfilePic] = useState(null);
-  const [fullname, setFullName] = useState("");
+  const [profilePic, setProfilePic] = useState(null);
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -30,7 +29,10 @@ const SignUpForm = () => {
   const HandleSignUp = async (e) => {
     e.preventDefault();
 
-    if (!fullname) {
+        let profileImageUrl = ""
+
+    
+    if (!fullName) {
       setError("Please enter the fullname.");
       return;
     }
@@ -48,15 +50,16 @@ const SignUpForm = () => {
       return;
     }
     setError("");
+    
     // Sign Up api
     try {
-
+      
       // upload image if present
-      if(profilePic) {
+      if (profilePic) {
         const imgUploadRes = await uploadImage(profilePic);
         profileImageUrl = imgUploadRes.imageUrl || "";
-      } 
-
+      }
+      
       const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER,{
         fullName,
         username,
@@ -68,11 +71,11 @@ const SignUpForm = () => {
       
       if (token) {
         localStorage.setItem("token", token);
-        updatUser(user);
+        updateUser(user);
         navigate("/dashboard");
       }
     } catch (error) {
-      if(error.response && error.response.data.message){
+      if(error.response && error.response.data.message){ 
       setError(error.response.data.message);
     } else{
       setError("something went wrong. please try again.");
@@ -88,10 +91,10 @@ const SignUpForm = () => {
           Join us today by entring your details below.
         </p>
         <form onSubmit={HandleSignUp}>
-          <ProfilePhotoSelector image={profilePic} setImage={setPorfilePic} />
+          <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Authinput
-              value={fullname}
+              value={fullName}
               onChange={({ target }) => setFullName(target.value)}
               label="Full Name"
               type="text"

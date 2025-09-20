@@ -6,20 +6,21 @@ const authRoutes = require("./routes/authRoutes");
 
 const connectDB = require("./config/db");
 
+
 const app = express();
 
 // middleware to handle CORS
-app.use(
-    cors({
-    origin: process.env.CLIENT_URL || "#",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
- })
+app.use(cors({
+  origin: process.env.CLIENT_URL || "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+})
 );
 
 app.use(express.json());
 
 connectDB()
+
 app.use("/api/v1/auth" , authRoutes);
 
 // server upleads folder

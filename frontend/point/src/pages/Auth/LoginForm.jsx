@@ -15,7 +15,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-  const {updateUser} = useContext(UserContext)
+  const { updateUser } = useContext(UserContext)
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -58,8 +58,8 @@ const LoginForm = () => {
   return (
     <AuthLayout>
       <div className="flex flex-col justify-center lg:w-[70%] h-3/4 md:h-full">
-        <h3 className="text-xl font-semibold text-black">Welcome Back</h3>
-        <p className="text-xs text-slate-700 mt-[5px] mb-6">
+        <h3 className="text-2xl  bg-gradient-to-r from-purple-500 to-indigo-300 bg-clip-text text-transparent  w-[240px] text-center rounded-[5px] ">Welcome To Voteds</h3>
+        <p className="text-xl bg-gradient-to-r from-purple-500 to-indigo-300 bg-clip-text text-transparent mt-[5px] mb-6 font-extralight">
           Please enter your details to log in
         </p>
         <form onSubmit={handleLogin}>
@@ -82,14 +82,14 @@ const LoginForm = () => {
 
           <button
             type="submit"
-            className="p-[10px] rounded-md my-1 hover:text-blue-500 text-white font-medium shadow-lg w-full text-sm bg-blue-400 "
+            className="p-[10px] rounded-md my-1 hover:text-blue-500 text-white font-medium shadow-lg w-full text-sm bg-purple-500 "
           >
             LOGIN
           </button>
 
           <p className="text-[13px] text-slate-800 ">
             Don't have An Account ?{" "}
-            <Link className="font-medium text-blue-400 underline" to="/signup">
+            <Link className="font-medium text-[EA8D62]   " to="/signup">
               Signup
             </Link>
           </p>
