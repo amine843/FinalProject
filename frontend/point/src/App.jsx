@@ -9,11 +9,12 @@ import LoginForm from "./pages/Auth/LoginForm.jsx";
 import SignUpForm from "./pages/Auth/SignUpForm.jsx";
 import Home from "./pages/dashboard/Home.jsx";
 import CreatePoll from "./pages/dashboard/CreatePoll.jsx";
-import MyPolis from "./pages/dashboard/MyPolis.jsx";
+import MyPolis from "./pages/dashboard/MyPolls.jsx"
 import VotedPolls from "./pages/dashboard/VotedPolls.jsx";
 import Bookmarks from "./pages/dashboard/Bookmarks.jsx";
 import Data from "./component/Data.jsx";
 import UserProvider from "./context/UserContext.jsx";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
@@ -32,7 +33,17 @@ const App = () => {
           <Route path="/bookmarked-polls" exact element={<Bookmarks />} />
         </Routes>
       </Router>
-    </UserProvider>
+
+      <Toaster
+      toastOptions={{
+        className: "",
+        style:{
+          fontSize:'13px'
+        }
+      }}/> 
+
+
+        </UserProvider>
     </div>
   );
 };

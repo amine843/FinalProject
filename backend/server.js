@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const authRoutes = require("./routes/authRoutes");
+const pollRoutes = require("./routes/pollRoutes");
 
 const connectDB = require("./config/db");
 
@@ -22,6 +23,7 @@ app.use(express.json());
 connectDB()
 
 app.use("/api/v1/auth" , authRoutes);
+app.use("/api/v1/poll" , pollRoutes);
 
 // server upleads folder
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));

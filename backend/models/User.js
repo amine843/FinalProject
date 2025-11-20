@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema(
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     profileImageUrl: { type: String, default: null },
-    bookmarkedpolls: [{ type: mongoose.Schema.Types.ObjectId, ref: "Poll" }],
+    bookmarkedPolls: [{ type: mongoose.Schema.Types.ObjectId, ref: "Poll" }],
   },
   { timestamps: true });
 

@@ -1,6 +1,7 @@
       const User = require("../models/User");
       const jwt = require("jsonwebtoken");
       const bcrypt = require("bcryptjs");
+const Poll = require("../models/Poll");
 
       const generateToken = (id) => {
         return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1h" });
@@ -61,14 +62,25 @@
           {
             return res.status(401).json({ message: "Invalid email or password" });
           }
+
+
+          //count polls created by the user
+          const totalPollsCreated = await Poll.countDocuments({ creator: user._id });
+
+          // count polls the user has voted in 
+          const totalPollsVotes = await Poll.countDocuments({voters: user._id});
+
+          // Get  the Count of bookmarked Polls
+          const totalPollsBookmarked = user.bookmarkedPolls.length;
+
           res.status(200)
             .json({
               id: user._id, 
               user: {
                 ...user.toObject(),
-                totalPollsCreated : 0,
-                totalPollsVotes : 0,
-              totalPollsBookmarked : 0, 
+                totalPollsCreated,
+                totalPollsVotes,
+              totalPollsBookmarked, 
             },  
             token: generateToken(user._id),
           });
@@ -79,15 +91,32 @@
         exports.getUserInfo = async (req, res) => {
           try {
             const user = await User.findById(req.user.id).select("-password");
+
+
             if (!user) {
               return res.status(401).json({ message: "User not found" });
             }
+
+
+
+            //count polls created by the user
+          const totalPollsCreated = await Poll.countDocument({creator: user._id});
+
+          // count polls the user has voted in 
+          const totalPollsVotes = await Poll.countDocuments({
+            voters: user._id
+          });
+
+          // Get  the Count of bookmarked Polls
+          const totalPollsBookmarked = user.bookmarkedPolls.length;
+
+
             //add the new attributes to the response
             const userInfo = {
             ...user.toObject(),
-            totalPollsCreated: 0,
-            totalPollsVotes: 0,
-            totalPollsBookmarked: 0,
+            totalPollsCreated,
+            totalPollsVotes,
+            totalPollsBookmarked,
             };
 
             res.status(200).json(userInfo);

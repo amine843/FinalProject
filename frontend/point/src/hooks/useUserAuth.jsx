@@ -21,7 +21,7 @@ useEffect(() => {
             }
     } catch (error) {
         console.error ("Failed to fetch user info:", error);
-        if(isMonted) {
+        if(isMounted) {
             clearUser();
             navigate("/login")
         }

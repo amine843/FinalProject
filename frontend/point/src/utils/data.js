@@ -46,8 +46,8 @@ export const SIDE_MENU_DATA = [
 ]
 export const POLL_TYPE = [
     { id: "01", label: "yes/no", value:"yes/no"},
-    { id: "02", label: "Single Choise", value:"single-choise"},
-    { id: "03", label: "Rating", value:"ratin"},
-    { id: "04", label: "image Based", value:"image-based"},
+    { id: "02", label: "Single Choise", value:"single-choice"},
+    { id: "03", label: "Rating", value:"rating"},
+    { id: "04", label: "Image Based", value:"image-based"},
     { id: "05", label: "Open ended", value:"open-ended"},
 ]
