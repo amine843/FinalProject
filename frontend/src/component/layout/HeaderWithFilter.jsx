@@ -7,12 +7,14 @@ const HeaderWithFilter = ({ title, filterType, setFilterType }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div>
-      <div className="flex items-center justify-between">
-        <h2 className="sm:text-xl font-medium text-black"> {title} </h2>
-
+<div>
+      <div className=" ">
+        <div>
+        <h2 className="sm:text-xl font-medium flex justify-center text-black"> {title} </h2>
+      </div>
+    <div className="">
         <button
-          className={`flex items-center gap-3 text-sm text-white bg-purple-700 px-4 py-2
+          className={`flex items-center justify-center gap-3 text-sm text-white bg-purple-700 px-4 py-2
         ${open ? "rounded-t-lg" : "rounded-lg"}
         `}
           onClick={() => {
@@ -32,11 +34,12 @@ const HeaderWithFilter = ({ title, filterType, setFilterType }) => {
             </>
           )}
         </button>
-      </div>
+    </div>
+</div>
 
 
       {open && (
-        <div className="flex flex-wrap gap-4 bg-red-700 py-4 rounded-b-lg">
+        <div className="flex flex-wrap justify-center gap-4 bg-purple-700 py-4 rounded-b-lg">
             {[{label: "All", value: ""}, ...POLL_TYPE].map((type)=>(
                 <button
                 key={type.value}

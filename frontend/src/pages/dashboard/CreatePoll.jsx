@@ -124,7 +124,7 @@ const CreatePoll = () => {
           <label className="text-xs font-medium text-slate-600">Question</label>
           <textarea
             placeholder="what's in your mind"
-            className="w-full h-[100px] text-[20px] font text-white outline-none bg-gradient-to-r from-purple-800 to-purple-600 p-2 rounded-md mt-2 "
+            className="w-full h-[100px] text-[20px] font- text-purple-700 outline-none bg-gradient-to-r from-purple-200 to-purple-600 p-2 rounded-md mt-2 shadow-2xl "
             rows={4}
             value={pollData.question}
             onChange={({ target }) =>

@@ -23,8 +23,8 @@ const PollOptionVoteResult = ({ label, optionVotes, totalVotes }) => {
 const ImagePollResult = ({ imgUrl, optionVotes, totalVotes }) => {
   return (
     <div>
-      <div className="w-full bg-purple-100 flex items-center gap-2 mb-4 rounded-md overflow-hidden">
-        <img src={imgUrl} alt="" className="w-full h-56 object-cover" />
+      <div className="w-full  bg-purple-100 flex items-center gap-2 mb-4 rounded-md overflow-hidden">
+        <img src={imgUrl} alt="" className="w-full h-94 object-cover" />
       </div>
 
       <PollOptionVoteResult optionVotes={optionVotes} totalVotes={totalVotes} />
@@ -80,7 +80,7 @@ const PollingResultContent = ({ type, options, voters, responses }) => {
       );
     case "image-based":
       return (
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-4 gap-4">
           {options.map((option, index) => (
             <ImagePollResult
               key={option._id}

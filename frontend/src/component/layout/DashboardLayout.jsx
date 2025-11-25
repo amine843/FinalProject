@@ -20,7 +20,7 @@ const DashboardLayout = ({ children, activeMenu, stats , showStats }) => {
       <div className="hidden md:block mr-5">
         <UserDetailsCard
         profileImageUrl={user && user.profileImageUrl}
-        fullname={user && user.fullname}
+        fullName={user && user.fullName}
         username={user && user.username}
         totalPollsVotes= {user && user.totalPollsVotes}
         totalPollsCreated={user && user.totalPollsCreated}

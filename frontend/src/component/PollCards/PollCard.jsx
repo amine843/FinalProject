@@ -153,7 +153,7 @@ const PollCard = ({
         <div className="flex items-start justify-between">
           <UserProfileInfo
             imgUrl={creatorProfileImg}
-            fullname={creatorName}
+            fullName={creatorName}
             username={creatorUsername}
             createdAt={createdAt}
           />

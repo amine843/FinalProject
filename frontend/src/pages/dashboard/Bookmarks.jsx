@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import PollCard from "../../component/PollCards/PollCard";
-import CREATE_ICON from "/trrt.jpg";
+import CREATE_ICON from "/aaaa.png";
 import EmptyCard from "../../component/cards/EmptyCard";
 import { UserContext } from "../../context/UserContext";
 
@@ -63,23 +63,22 @@ const Bookmarks = () => {
         {bookmarkedPolls.map((poll) => {
           if (!user?.bookmarkedPolls?.includes(poll._id)) return null;
           return (
-            <PollCard
-              key={`dashboard_${poll._id}`}
-              pollId={poll._id}
-              question={poll.question}
-              type={poll.type}
-              options={poll.options}
-              voters={poll.voters.length || 0}
-              responses={poll.responses || {}}
-              creatorProfileImg={poll.creator.profileImageUrl || null}
-              creatorName={poll.creator.fullname}
-              creatorUsername={poll.creator.username}
-              userHasVoted={poll.userHasVoted || false}
-              isPollClosed={poll.closed || false}
-              createdAt={poll.createdAt || false}
-            />
-          );
-        })}
+                <PollCard
+            key={`dashboard_${poll._id}`}
+            pollId={poll._id}
+            question={poll.question}
+            type={poll.type}
+            options={poll.options}
+            voters={poll.voters.length || 0}
+            responses={poll.responses || {}}
+            creatorProfileImg={poll.creator.profileImageUrl || null}
+            creatorName={poll.creator.fullName}
+            creatorUsername={poll.creator.username}
+            userHasVoted={poll.userHasVoted || false}
+            isPollClosed={poll.closed || false}
+            createdAt={poll.createdAt || false}
+          />
+          )})};
       </div>
     </DashboardLayout>
   );

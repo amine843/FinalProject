@@ -6,7 +6,7 @@ import { API_PATHS } from "../../utils/apiPaths";
 import PollCard from "../../component/PollCards/PollCard";
 import { useNavigate } from "react-router-dom";
 import HeaderWithFilter from "../../component/layout/HeaderWithFilter";
-import CREATE_ICON from "/trrt.jpg";
+import CREATE_ICON from "/aaaa.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import EmptyCard from "../../component/cards/EmptyCard";
 
@@ -109,7 +109,7 @@ const Home = () => {
               voters={poll.voters.length || 0}
               responses={poll.responses || {}}
               creatorProfileImg={poll.creator.profileImageUrl || null}
-              creatorName={poll.creator.fullname}
+              creatorName={poll.creator.fullName}
               creatorUsername={poll.creator.username}
               userHasVoted={poll.userHasVoted || false}
               isPollClosed={poll.closed || false}

@@ -11,7 +11,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { UserContext } from "../../context/UserContext";
 import EmptyCard from "../../component/cards/EmptyCard";
 
-import CREATE_ICON from "/trrt.jpg";
+import CREATE_ICON from "/aaaa.png";
 
 const PAGE_SIZE = 10;
 
@@ -110,7 +110,7 @@ const MyPolls = () => {
               voters={poll.voters.length || 0}
               responses={poll.responses || {}}
               creatorProfileImg={poll.creator.profileImageUrl || null}
-              creatorName={poll.creator.fullname}
+              creatorName={poll.creator.fullName}
               creatorUsername={poll.creator.username}
               userHasVoted={poll.userHasVoted || false}
               isPollClosed={poll.closed || false}

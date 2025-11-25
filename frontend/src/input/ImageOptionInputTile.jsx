@@ -7,10 +7,10 @@ const ImageOptionInputTile = ({isSelected, imgUrl, onSelect}) => {
   };
   return (
     <button
-      className={`aspect-[4/5] w-full flex items-center justify-center  gap-2 bg-slate-200/40 mb-4 border rounded-md overflow-hidden  ${getColors()}`}
+      className={`w-full max-w-sm h-[500px] flex items-center justify-center  gap-2 bg-slate-200/40 mb-4 border rounded-md overflow-hidden  ${getColors()}`}
       onClick={onSelect}
     >
-      <img src={imgUrl} alt="" className="object-contain w-96 h-full rounded-lg  " />
+      <img src={imgUrl} alt="" className=" w-full h-full object-cover rounded-lg  " />
     </button>
   );
 };
